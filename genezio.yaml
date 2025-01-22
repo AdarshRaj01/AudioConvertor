@@ -1,0 +1,29 @@
+# The name of the project. Ensure it matches your project settings if set elsewhere.
+name: AudioConvertor
+
+# The region where the project is deployed. You can choose this based on your user base or compliance requirements.
+region: us-east-1
+
+# The version of the Genezio YAML configuration.
+yamlVersion: 2
+
+backend:
+  # The root directory of the backend where your server code resides.
+  path: .
+
+  # Information about the backend's programming language.
+  language:
+    name: python
+    packageManager: pip # Since you are using `requirements.txt`
+
+  # Information about the backend's functions.
+  functions:
+    - entry: app/main.py
+      handler: app # FastAPI app instance
+      name: fastapi # Give this a meaningful name, relating to your function
+      path: . # Path relative to `path` that contains the handler code
+      type: httpServer # Since it's a web server handling HTTP requests
+
+frontend:
+  path: ./client # Specify this if you later have frontend code to deploy
+  publish: ./dist # The directory that will be published to the CDN. Not used if there's no frontend yet.
