@@ -3,4 +3,6 @@ uvicorn
 python-dotenv
 ffmpeg-python
 pydantic
+shutil
+
 
